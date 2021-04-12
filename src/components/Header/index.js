@@ -60,7 +60,7 @@ export default function Header() {
                       <strong>Database</strong>
                     </li>
                   </Link>
-                  <Link to="/">
+                  <Link to="/signup">
                     <li>
                       <strong>Registro</strong>
                     </li>

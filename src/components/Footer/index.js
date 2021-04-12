@@ -11,7 +11,7 @@ export default function Footer() {
       <div id="backgroundFooter">
         <div id="divTitle">
           <div>
-            <img src={imgfooter} alt="imgfooter" width="130px" />
+            <img src={imgfooter} alt="imgfooter" width="150px" />
           </div>
           <div id="divNavegation">
             <div>
