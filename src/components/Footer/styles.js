@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const FooterDiv = styled.div`
   background: #5f5f5f;
+  height: 100%;
+  max-height: 200px;
 
   #backgroundFooter {
     max-width: 1100px;
@@ -10,6 +12,8 @@ export const FooterDiv = styled.div`
     display: flex;
     margin: 0 auto;
     justify-content: center;
+    height: 100%;
+    align-items: center;
   }
 
   #divTitle {
