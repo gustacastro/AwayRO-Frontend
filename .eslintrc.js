@@ -17,6 +17,6 @@ module.exports = {
     'prettier/prettier': 'error',
     'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
     'import/prefer-default-export': 'off',
-    'eslint-disable-next-line': 'no-console',
+    'no-console': ['error', { allow: ['tron'] }],
   },
 };
