@@ -147,9 +147,12 @@ export const BackGround = styled.div`
     }
 
     span {
-      color: #f64c75;
+      color: #fff;
       font-size: 12px;
       margin: 0 0 10px;
+      padding: 5px 10px;
+      background-color: #f64c75;
+      border-radius: 50px;
     }
 
     button {

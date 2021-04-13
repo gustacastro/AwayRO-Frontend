@@ -1,12 +1,11 @@
+/* eslint-disable camelcase */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState, useRef } from 'react';
-import { /* useDispatch, */ useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Form, Input, Choice, useField } from '@rocketseat/unform';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
-
-// import { signInRequest } from '../../store/modules/auth/action';
 
 import ReactDatepicker, { registerLocale } from 'react-datepicker';
 import el from 'date-fns/locale/pt-BR'; // register it with the name you want
@@ -20,6 +19,9 @@ import { BackGround, StatusNames, Wrapper, Status, Container } from './styles';
 import Accordion from '../../components/Accordion/accordion';
 
 import logoCima from '../../assets/away-full-logo.png';
+
+import { signUpRequest } from '../../store/modules/auth/action';
+
 // the locale you want
 registerLocale('pr-br', el);
 
@@ -28,15 +30,21 @@ const schema = Yup.object().shape({
   user_pass: Yup.string()
     .min(6, 'Senha contém no mínimo 6 caracteres')
     .required('Senha é obrigatória'),
-  confirm_user_pass: Yup.string(),
   email: Yup.string()
     .email('Insira um e-mail válido')
     .required('O e-mail é obrigatório'),
   sex: Yup.mixed().oneOf(['M', 'F', 'S']).required('Sexo é obrigatório'),
-  birthday: Yup.date().required('Data de nascimento é obrigatório'),
+  birthdate: Yup.date().required('Data de nascimento é obrigatório'),
+  confirm_user_pass: Yup.string().when('user_pass', (user_pass, field) =>
+    user_pass
+      ? field.required().oneOf([Yup.ref('user_pass')], 'As senhas não batem')
+      : field
+  ),
 });
 
 export default function SignUp() {
+  const dispatch = useDispatch();
+
   const Datepicker = ({ name, label }) => {
     const ref = useRef(null); // for ref manipulation purposes
     const { fieldName, registerField, defaultValue, error } = useField(name); // the name of the prop in form object is used here
@@ -144,12 +152,12 @@ export default function SignUp() {
       </>
     );
   };
-  // const dispatch = useDispatch();
+
   const loading = useSelector((state) => state.auth.loading);
 
-  // eslint-disable-next-line camelcase
-  function handleSubmit(data) {
-    console.tron.log(data);
+  function handleSubmit({ userid, user_pass, email, birthdate, sex }) {
+    console.tron.log(userid, user_pass, email, birthdate, sex);
+    dispatch(signUpRequest(userid, user_pass, email, birthdate, sex));
   }
 
   return (
@@ -206,10 +214,10 @@ export default function SignUp() {
               />
             </div>
             <div id="date">
-              <Datepicker name="birthday" label="Data de nascimento" />
+              <Datepicker name="birthdate" label="Data de nascimento" />
             </div>
             <button type="submit">
-              {loading ? 'Carregando...' : 'Acessar'}
+              {loading ? 'Carregando...' : 'Cadastrar'}
             </button>
             <Link to="signin">Já tenho conta</Link>
           </Form>

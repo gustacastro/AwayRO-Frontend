@@ -146,9 +146,16 @@ export const BackGround = styled.div`
     }
 
     #divRadio {
+      margin-top: 2px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      justify-content: space-between;
+      min-height: 45px;
+
+      span {
+        margin-top: 5px;
+      }
 
       [type='radio']:checked,
       [type='radio']:not(:checked) {
@@ -219,13 +226,16 @@ export const BackGround = styled.div`
     }
 
     span {
-      color: #f64c75;
+      color: #fff;
       font-size: 12px;
-      margin: 0 0 10px;
+      margin: 0 0 5px;
+      padding: 5px 10px;
+      background-color: #f64c75;
+      border-radius: 50px;
     }
 
     button {
-      margin: 5px 0 0;
+      margin: 15px 0 0;
       height: 40px;
       background: #fff;
       -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);

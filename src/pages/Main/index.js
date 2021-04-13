@@ -1,6 +1,10 @@
-import React from 'react';
+/* eslint-disable no-console */
+/* eslint-disable react/no-array-index-key */
+import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import { Form, Input, Choice } from '@rocketseat/unform';
+import api from '../../services/api';
 import {
   BackGround,
   StatusNames,
@@ -25,6 +29,21 @@ import guild from '../../assets/woe01.png';
 import swords from '../../assets/swords.png';
 
 export default function Main() {
+  const [macaco, setMacaco] = useState([]);
+
+  const listPhones = async () => {
+    try {
+      const { data } = await api.get('/users');
+      setMacaco(data?.users?.count);
+    } catch (error) {
+      toast.error('Erro de conexão com o servidor!');
+    }
+  };
+
+  useEffect(() => {
+    listPhones();
+  }, []);
+
   function handleSubmit(data) {
     // eslint-disable-next-line no-console
     console.tron.log(data);
@@ -38,12 +57,13 @@ export default function Main() {
             <strong id="online">Online</strong>
           </div>
           <div id="divPlayerNum">
-            <strong id="pPlayer">2785</strong>
+            <strong id="pPlayer">{macaco}</strong>
           </div>
           <div id="divPlayerNum">
             <strong id="offline">Offline</strong>
           </div>
         </div>
+
         <div>
           <StatusNames>
             <div id="servidor">

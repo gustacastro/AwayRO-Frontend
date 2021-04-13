@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { takeLatest, call, put, all } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 
@@ -27,4 +28,28 @@ export function* signIn({ payload }) {
   }
 }
 
-export default all([takeLatest('@auth/SIGN_IN_REQUEST', signIn)]);
+export function* signUp({ payload }) {
+  try {
+    const { userid, user_pass, email, birthdate, sex } = payload;
+
+    yield call(api.post, 'users', {
+      userid,
+      user_pass,
+      email,
+      birthdate,
+      sex,
+    });
+
+    history.push('/signin');
+    toast.success('Usuário criado com sucesso!');
+  } catch (err) {
+    toast.error('Falha no cadastro, verifique seus dados!');
+
+    yield put(signFailure());
+  }
+}
+
+export default all([
+  takeLatest('@auth/SIGN_IN_REQUEST', signIn),
+  takeLatest('@auth/SIGN_UP_REQUEST', signUp),
+]);

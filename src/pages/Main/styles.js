@@ -118,7 +118,7 @@ export const BackGround = styled.div`
   display: flex;
   flex-direction: column;
   background-color: white;
-  z-index: 1;
+
   color: #898989;
   text-align: center;
   -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
@@ -147,7 +147,7 @@ export const BackGround = styled.div`
 
   #database {
     margin-left: -550px;
-    margin-top: -250px;
+    margin-top: -255px;
     width: 250px;
     height: 300px;
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
@@ -161,7 +161,8 @@ export const BackGround = styled.div`
 
     #imgdiv {
       width: 100%;
-      margin-top: -10px;
+      margin-top: -20px;
+      z-index: 3;
 
       img {
         margin: -25px;
