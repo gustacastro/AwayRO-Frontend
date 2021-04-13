@@ -17,6 +17,8 @@ import range from 'lodash/range';
 
 import { BackGround, StatusNames, Wrapper, Status, Container } from './styles';
 
+import Accordion from '../../components/Accordion/accordion';
+
 import logoCima from '../../assets/away-full-logo.png';
 // the locale you want
 registerLocale('pr-br', el);
@@ -31,13 +33,13 @@ const schema = Yup.object().shape({
     .email('Insira um e-mail válido')
     .required('O e-mail é obrigatório'),
   sex: Yup.mixed().oneOf(['M', 'F', 'S']).required('Sexo é obrigatório'),
-  birthday: Yup.date().required('Data de aniversãrio é obrigatório'),
+  birthday: Yup.date().required('Data de nascimento é obrigatório'),
 });
 
 export default function SignUp() {
   const Datepicker = ({ name, label }) => {
     const ref = useRef(null); // for ref manipulation purposes
-    const { fieldName, registerField, error } = useField(name); // the name of the prop in form object is used here
+    const { fieldName, registerField, defaultValue, error } = useField(name); // the name of the prop in form object is used here
     // the state of our datepicker component
 
     useEffect(() => {
@@ -53,7 +55,7 @@ export default function SignUp() {
       });
     }, [fieldName]);
 
-    const [startDate, setStartDate] = useState(new Date());
+    const [selectedDate, setSelectedDate] = useState(defaultValue);
     const years = range(1980, getYear(new Date()) + 1, 1);
     const months = [
       'Janeiro',
@@ -78,6 +80,7 @@ export default function SignUp() {
           id="birthday"
           name={fieldName}
           locale="pr-br"
+          dateFormat="dd/MM/yyyy"
           renderCustomHeader={({
             date,
             changeYear,
@@ -132,8 +135,8 @@ export default function SignUp() {
               </button>
             </div>
           )}
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
+          selected={selectedDate}
+          onChange={(date) => setSelectedDate(date)}
           ref={ref}
         />
         {/* the error is like error in Unform Input component */}
@@ -210,6 +213,18 @@ export default function SignUp() {
             </button>
             <Link to="signin">Já tenho conta</Link>
           </Form>
+          <Accordion
+            title="Válidações para criar conta"
+            content="
+            <h1>Sua conta precisa seguir as seguintes normas:</h1>
+            </br>
+            <strong>Usuário: </strong><p>Ter no mínimo 4 caracteres.</p>
+            <strong>Senha: </strong><p>Ter no mínimo 6 caracteres.</p>
+            <strong>E-mail: </strong><p>Conter @ e .com para ser um e-mail válido.</p>
+            <strong>Sexo: </strong><p>Selecionar Masculino ou Feminino.</p>
+            <strong>Data de nascimento: </strong><p>Colocar por que pode haver algumas surpresas. ;)</p>
+            "
+          />
         </BackGround>
       </Container>
     </Wrapper>

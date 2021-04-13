@@ -114,7 +114,7 @@ export const Container = styled.div`
 
 export const BackGround = styled.div`
   padding-top: 20px;
-  min-height: 400px;
+  min-height: 500px;
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -122,12 +122,24 @@ export const BackGround = styled.div`
   color: #898989;
   text-align: center;
   align-items: center;
+  padding-bottom: 20px;
 
   form {
     max-width: 200px;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
+
+    .react-datepicker-wrapper,
+    .react-datepicker__input-container,
+    .react-datepicker__input-container button {
+      color: red;
+    }
+    .react-datepicker__input-container input {
+      display: block;
+      width: 100%;
+    }
 
     #date {
       margin-top: 10px;
