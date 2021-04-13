@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 
 export const Status = styled.div`
   margin: 0 auto;
-  width: 320px;
+  width: 270px;
   height: 50px;
   background-color: white;
   border-radius: 0 0 15px 15px;

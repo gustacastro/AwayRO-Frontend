@@ -29,19 +29,31 @@ import guild from '../../assets/woe01.png';
 import swords from '../../assets/swords.png';
 
 export default function Main() {
-  const [macaco, setMacaco] = useState([]);
+  const [playerOnline, setPlayerOnline] = useState(false);
+  const [serverOnline, setServerOnline] = useState();
 
-  const listPhones = async () => {
+  const PlayersOnlineStatus = async () => {
     try {
       const { data } = await api.get('/users');
-      setMacaco(data?.users?.count);
+      setPlayerOnline(data?.users?.count);
     } catch (error) {
+      console.log(JSON.stringify(error));
       toast.error('Erro de conexão com o servidor!');
     }
   };
 
+  const ServerOnlineStatus = async () => {
+    try {
+      const { data } = await api.get('/serverstatus');
+      setServerOnline(data?.serveronline);
+    } catch (error) {
+      console.log(JSON.stringify(error));
+    }
+  };
+
   useEffect(() => {
-    listPhones();
+    PlayersOnlineStatus();
+    ServerOnlineStatus();
   }, []);
 
   function handleSubmit(data) {
@@ -54,13 +66,12 @@ export default function Main() {
       <Status>
         <div id="divStatus">
           <div id="divSides">
-            <strong id="online">Online</strong>
+            <strong id={serverOnline ? 'online' : 'offline'}>
+              {serverOnline ? 'Online' : 'Offline'}
+            </strong>
           </div>
           <div id="divPlayerNum">
-            <strong id="pPlayer">{macaco}</strong>
-          </div>
-          <div id="divPlayerNum">
-            <strong id="offline">Offline</strong>
+            <strong id="pPlayer">{playerOnline || '0'}</strong>
           </div>
         </div>
 
@@ -71,9 +82,6 @@ export default function Main() {
             </div>
             <div id="player">
               <strong>Jogadores</strong>
-            </div>
-            <div id="woe">
-              <strong>WoE</strong>
             </div>
           </StatusNames>
         </div>
