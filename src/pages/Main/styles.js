@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   padding: 20px;
   margin: 0 auto;
   z-index: 50;
+  margin-top: 50px;
 
   // ================== Start Title ================ \\
 
