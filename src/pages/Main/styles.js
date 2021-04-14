@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   max-width: 1200px;
   padding: 20px;
   margin: 0 auto;
+  z-index: 50;
 
   // ================== Start Title ================ \\
 
@@ -113,4 +114,177 @@ export const Wrapper = styled.div`
   }
 
   // ================== End Tab 2 ================ \\
+
+  // ================== Start Noticies and Events ================ \\
+  .noticieseventstabs {
+    padding: 20px 0;
+    width: 63%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 15px;
+      margin-top: 30px;
+    }
+
+    .linkevents {
+      &:hover {
+        color: #a81a25;
+      }
+    }
+    .noticies {
+      display: flex;
+      flex-direction: column;
+      .title {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 30px;
+
+        .linknoticies {
+          &:hover {
+            color: #fea52d;
+          }
+
+          .linkevents {
+            &:hover {
+              color: #fea52d;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // ================== End Noticies and Events ================ \\
+`;
+
+export const Notices = styled.div`
+  width: 320px;
+  height: 70px;
+  max-height: 70px;
+  border-radius: 5px;
+  background: transparent;
+  color: #fff;
+  display: flex;
+  font-size: 11px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    background: #fea52d;
+    color: white;
+  }
+
+  h1 {
+    font-size: 11px;
+    padding-bottom: 5px;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .date {
+    color: white;
+    margin: 0 auto;
+    width: 65px;
+    min-width: 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px 0 0 5px;
+    background: #fea52d;
+
+    h1 {
+      font-size: 28px;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 0px;
+    }
+
+    span {
+      display: flex;
+      justify-content: center;
+      font-size: 11px;
+    }
+  }
+
+  .effectSide {
+    background: #fea52d;
+    width: 4px;
+    border-radius: 0 5px 5px 0;
+  }
+`;
+
+export const Events = styled.div`
+  width: 320px;
+  height: 70px;
+  max-height: 70px;
+  border-radius: 5px;
+  background: transparent;
+  color: #fff;
+  display: flex;
+  font-size: 11px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    background: #a81a25;
+    color: white;
+  }
+
+  h1 {
+    font-size: 11px;
+    padding-bottom: 5px;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .dateEvents {
+    color: white;
+    margin: 0 auto;
+    width: 65px;
+    min-width: 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0 5px 5px 0;
+    background: #a81a25;
+
+    h1 {
+      font-size: 28px;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 0px;
+    }
+
+    span {
+      display: flex;
+      justify-content: center;
+      font-size: 11px;
+    }
+  }
+
+  .effectSideEvents {
+    background: #a81a25;
+    width: 5px;
+    border-radius: 5px 0 0 5px;
+  }
 `;
