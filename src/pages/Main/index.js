@@ -1,433 +1,70 @@
-/* eslint-disable no-console */
-/* eslint-disable react/no-array-index-key */
-import React, { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import { Form, Input, Choice } from '@rocketseat/unform';
-import api from '../../services/api';
-import {
-  BackGround,
-  StatusNames,
-  Wrapper,
-  Status,
-  Container,
-  Quadradim,
-  BackGroundNoticies,
-  Notices,
-  Events,
-  Count,
-  QuadradimBaixo,
-  Guild,
-  Days,
-  Footer,
-} from './styles';
+// Imports
+import Accordion from '../../components/Accordion/accordion';
 
-import logoCima from '../../assets/away-full-logo.png';
-import gepard from '../../assets/energia-verde.png';
-import databaseimg from '../../assets/databaseimg.png';
-import guild from '../../assets/woe01.png';
-import swords from '../../assets/swords.png';
+// styles
+import { Wrapper } from './styles';
+
+// imgs
+import titleimg from '../../assets/titleimg.png';
 
 export default function Main() {
-  const [playerOnline, setPlayerOnline] = useState(false);
-  const [serverOnline, setServerOnline] = useState();
-
-  const PlayersOnlineStatus = async () => {
-    try {
-      const { data } = await api.get('/users');
-      setPlayerOnline(data?.users?.count);
-    } catch (error) {
-      console.log(JSON.stringify(error));
-      toast.error('Erro de conexão com o servidor!');
-    }
-  };
-
-  const ServerOnlineStatus = async () => {
-    try {
-      const { data } = await api.get('/serverstatus');
-      setServerOnline(data?.serveronline);
-    } catch (error) {
-      console.log(JSON.stringify(error));
-    }
-  };
-
-  useEffect(() => {
-    PlayersOnlineStatus();
-    ServerOnlineStatus();
-  }, []);
-
-  function handleSubmit(data) {
-    // eslint-disable-next-line no-console
-    console.tron.log(data);
-  }
-
   return (
     <Wrapper>
-      <Status>
-        <div id="divStatus">
-          <div id="divSides">
-            <strong id={serverOnline ? 'online' : 'offline'}>
-              {serverOnline ? 'Online' : 'Offline'}
-            </strong>
-          </div>
-          <div id="divPlayerNum">
-            <strong id="pPlayer">{playerOnline || '0'}</strong>
-          </div>
+      <div className="divtitle">
+        <div className="titleleft">
+          <h1>Lorem ipsum dolor sit amet</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <Link className="linkregister" type="button" to="signin">
+            Registrar-se
+          </Link>
         </div>
-
+        <img src={titleimg} alt="titleimg" />
+      </div>
+      <div className="boxstatustop">
         <div>
-          <StatusNames>
-            <div id="servidor">
-              <strong>Servidor</strong>
-            </div>
-            <div id="player">
-              <strong>Jogadores</strong>
-            </div>
-          </StatusNames>
+          <span>Servidor:</span>
+          <h1 className="online">Online</h1>
         </div>
-      </Status>
-
-      <Container>
-        <div id="divimg">
-          <img src={logoCima} alt="logocima" />
+        <div>
+          <span>Jogadores Online: </span>
+          <h1 className="online">2524</h1>
         </div>
-        <BackGround>
-          <div>
-            <h1>
-              Seja bem-vindo ao servidor <verde>AwayRO.</verde>
-            </h1>
-            <span>
-              Um novo servidor totalmente amigável, servidor atualizado
-              utilizando rAthena.
-              <br />
-              Com as rates <verde>15x </verde>/ <verde>15x </verde>/{' '}
-              <verde>10x, </verde>com vários eventos para você.
-            </span>
-          </div>
-          <div id="quadradinhos">
-            <Quadradim>
-              <div>
-                <img src={gepard} alt="gepard" />
-                <div>
-                  <strong>
-                    gePARD <br />
-                    shield
-                  </strong>
-                </div>
-              </div>
-            </Quadradim>
-            <Quadradim>
-              <div>
-                <img src={gepard} alt="gepard" />
-                <div>
-                  <strong>
-                    rAthena
-                    <br />
-                    Atualizado
-                  </strong>
-                </div>
-              </div>
-            </Quadradim>
-            <Quadradim>
-              <div>
-                <img src={gepard} alt="gepard" />
-                <div>
-                  <strong>
-                    Sem <br />
-                    ROPs
-                  </strong>
-                </div>
-              </div>
-            </Quadradim>
-          </div>
-          <div id="centroplz">
-            <div id="database">
-              <div id="imgdiv">
-                <img src={databaseimg} alt="icon" />
-              </div>
-              <Form onSubmit={handleSubmit}>
-                <h1>Database</h1>
-                <span>Escolha Item ou Monstro</span>
-                <div id="choice">
-                  <Choice
-                    name="choiceDb"
-                    options={[
-                      { value: 'itemDb', label: 'Item db' },
-                      { value: 'mobDb', label: 'Mob db' },
-                    ]}
-                  />
-                </div>
-                <Input name="search" placeholder="Id ou Nome" />
-                <button type="submit">Procurar</button>
-              </Form>
-            </div>
-          </div>
-        </BackGround>
-        <BackGroundNoticies>
-          <div id="painelRecentNews">
-            <div>
-              <div id="space-between">
-                <div>
-                  <h1>Notícias Recentes</h1>
-                </div>
-                <div>
-                  <div id="nAeffect" />
-                  <div>
-                    <button type="button">Notícias anteriores</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <ul>
-              <Notices onClick={() => {}}>
-                <div id="date">
-                  <h1>11</h1>
-                  <span>Abril</span>
-                </div>
-                <div id="text">
-                  <h1>Lorem ipsum sollicitudin aliquet aliquam</h1>
-                  <p>
-                    Lorem ipsum sollicitudin aliquet aliquam massa odio praesent
-                    nunc.
-                  </p>
-                </div>
-                <div id="effectSide" />
-              </Notices>
-              <Notices>
-                <div id="date">
-                  <h1>11</h1>
-                  <span>Abril</span>
-                </div>
-                <div id="text">
-                  <h1>Lorem ipsum sollicitudin aliquet aliquam</h1>
-                  <p>
-                    Lorem ipsum sollicitudin aliquet aliquam massa odio praesent
-                    nunc.
-                  </p>
-                </div>
-                <div id="effectSide" />
-              </Notices>
-              <Notices>
-                <div id="date">
-                  <h1>11</h1>
-                  <span>Abril</span>
-                </div>
-                <div id="text">
-                  <h1>Lorem ipsum sollicitudin aliquet aliquam</h1>
-                  <p>
-                    Lorem ipsum sollicitudin aliquet aliquam massa odio praesent
-                    nunc.
-                  </p>
-                </div>
-                <div id="effectSide" />
-              </Notices>
-              <Notices>
-                <div id="date">
-                  <h1>11</h1>
-                  <span>Abril</span>
-                </div>
-                <div id="text">
-                  <h1>Lorem ipsum sollicitudin aliquet aliquam</h1>
-                  <p>
-                    Lorem ipsum sollicitudin aliquet aliquam massa odio praesent
-                    nunc.
-                  </p>
-                </div>
-                <div id="effectSide" />
-              </Notices>
-              <Notices>
-                <div id="date">
-                  <h1>11</h1>
-                  <span>Abril</span>
-                </div>
-                <div id="text">
-                  <h1>Lorem ipsum sollicitudin aliquet aliquam</h1>
-                  <p>
-                    Lorem ipsum sollicitudin aliquet aliquam massa odio praesent
-                    nunc.
-                  </p>
-                </div>
-                <div id="effectSide" />
-              </Notices>
-              <Notices>
-                <div id="date">
-                  <h1>11</h1>
-                  <span>Abril</span>
-                </div>
-                <div id="text">
-                  <h1>Lorem ipsum sollicitudin aliquet aliquam</h1>
-                  <p>
-                    Lorem ipsum sollicitudin aliquet aliquam massa odio praesent
-                    nunc.
-                  </p>
-                </div>
-                <div id="effectSide" />
-              </Notices>
-            </ul>
-          </div>
-
-          <div id="painelEvents">
-            <div>
-              <div id="space-between">
-                <div>
-                  <h1>Eventos</h1>
-                </div>
-                <div>
-                  <div id="nAeffectEvents" />
-                  <div>
-                    <button type="button">Ler mais</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <ul>
-              <Events onClick={() => {}}>
-                <div id="effectSideEvents" />
-                <div id="text">
-                  <h1>Lorem ipsum sollicitudin aliquet aliquam</h1>
-                  <p>
-                    Lorem ipsum sollicitudin aliquet aliquam massa odio praesent
-                    nunc.
-                  </p>
-                </div>
-                <div id="dateEvents">
-                  <h1>11</h1>
-                  <span>Abril</span>
-                </div>
-              </Events>
-              <Events onClick={() => {}}>
-                <div id="effectSideEvents" />
-                <div id="text">
-                  <h1>Lorem ipsum sollicitudin aliquet aliquam</h1>
-                  <p>
-                    Lorem ipsum sollicitudin aliquet aliquam massa odio praesent
-                    nunc.
-                  </p>
-                </div>
-                <div id="dateEvents">
-                  <h1>11</h1>
-                  <span>Abril</span>
-                </div>
-              </Events>
-              <Events onClick={() => {}}>
-                <div id="effectSideEvents" />
-                <div id="text">
-                  <h1>Lorem ipsum sollicitudin aliquet aliquam</h1>
-                  <p>
-                    Lorem ipsum sollicitudin aliquet aliquam massa odio praesent
-                    nunc.
-                  </p>
-                </div>
-                <div id="dateEvents">
-                  <h1>11</h1>
-                  <span>Abril</span>
-                </div>
-              </Events>
-            </ul>
-          </div>
-        </BackGroundNoticies>
-
-        <Count>
-          <div id="quadradinhos">
-            <QuadradimBaixo>
-              <div>
-                <img src={gepard} alt="gepard" />
-                <div id="textCollum">
-                  <strong>5612</strong>
-                  <span>Total de Contas</span>
-                </div>
-              </div>
-            </QuadradimBaixo>
-            <QuadradimBaixo>
-              <div>
-                <img src={gepard} alt="gepard" />
-                <div id="textCollum">
-                  <strong>1207</strong>
-                  <span>Total de Personagens</span>
-                </div>
-              </div>
-            </QuadradimBaixo>
-            <QuadradimBaixo>
-              <div>
-                <img src={gepard} alt="gepard" />
-                <div id="textCollum">
-                  <strong>200</strong>
-                  <span>Total de Guilds</span>
-                </div>
-              </div>
-            </QuadradimBaixo>
-          </div>
-          <Guild>
-            <div id="divGuildSeparation">
-              <div id="divWoe">
-                <div>
-                  <h1>Dias da Guerra do Emperium:</h1>
-                </div>
-                <div id="centerDays">
-                  <ul>
-                    <Days>
-                      <div id="sidebyside">
-                        <img src={swords} alt="" />
-                        <div id="divDay">
-                          <span>Segunda-Feira</span>
-                        </div>
-                        <div id="divName">
-                          <span>Prontera</span>
-                        </div>
-                        <div id="divHourInicial">
-                          <span>18:00</span>
-                        </div>
-                        <div>
-                          <span>20:00</span>
-                        </div>
-                      </div>
-                    </Days>
-                    <Days>
-                      <div id="sidebyside">
-                        <img src={swords} alt="" />
-                        <div id="divDay">
-                          <span>Quarta-Feira</span>
-                        </div>
-                        <div id="divName">
-                          <span>Payon</span>
-                        </div>
-                        <div id="divHourInicial">
-                          <span>10:00</span>
-                        </div>
-                        <div>
-                          <span>12:00</span>
-                        </div>
-                      </div>
-                    </Days>
-                    <Days>
-                      <div id="sidebyside">
-                        <img src={swords} alt="" />
-                        <div id="divDay">
-                          <span>Sexta-Feira</span>
-                        </div>
-                        <div id="divName">
-                          <span>Aldebaran</span>
-                        </div>
-                        <div id="divHourInicial">
-                          <span>22:00</span>
-                        </div>
-                        <div>
-                          <span>00:00</span>
-                        </div>
-                      </div>
-                    </Days>
-                  </ul>
-                </div>
-              </div>
-              <div id="divImg">
-                <img src={guild} alt="guild" />
-              </div>
-            </div>
-          </Guild>
-        </Count>
-
-        <Footer />
-      </Container>
+      </div>
+      <div className="divtab2">
+        <img src={titleimg} alt="titleimg" />
+        <div className="accordionright">
+          <Accordion
+            title="Lorem ipsum dolor sit amet"
+            content="
+            <h1>Lorem ipsum dolor sit amet</h1>
+            </br>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            "
+          />
+          <Accordion
+            title="Lorem ipsum dolor sit amet"
+            content="
+            <h1>Lorem ipsum dolor sit amet</h1>
+            </br>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            "
+          />
+          <Accordion
+            title="Lorem ipsum dolor sit amet"
+            content="
+            <h1>Lorem ipsum dolor sit amet</h1>
+            </br>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            "
+          />
+        </div>
+      </div>
     </Wrapper>
   );
 }

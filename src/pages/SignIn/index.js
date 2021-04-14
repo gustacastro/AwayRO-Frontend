@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 
 import { signInRequest } from '../../store/modules/auth/action';
 
-import { BackGround, StatusNames, Wrapper, Status, Container } from './styles';
+import { BackGround, Wrapper, Container } from './styles';
 
 import logoCima from '../../assets/away-full-logo.png';
 
@@ -28,33 +28,6 @@ export default function SignIn() {
 
   return (
     <Wrapper>
-      <Status>
-        <div id="divStatus">
-          <div id="divSides">
-            <strong id="online">Online</strong>
-          </div>
-          <div id="divPlayerNum">
-            <strong id="pPlayer">2785</strong>
-          </div>
-          <div id="divPlayerNum">
-            <strong id="offline">Offline</strong>
-          </div>
-        </div>
-        <div>
-          <StatusNames>
-            <div id="servidor">
-              <strong>Servidor</strong>
-            </div>
-            <div id="player">
-              <strong>Jogadores</strong>
-            </div>
-            <div id="woe">
-              <strong>WoE</strong>
-            </div>
-          </StatusNames>
-        </div>
-      </Status>
-
       <Container>
         <div id="divimg">
           <img src={logoCima} alt="logocima" />
@@ -62,7 +35,9 @@ export default function SignIn() {
         <BackGround>
           <h1>Área de acesso</h1>
           <Form schema={schema} onSubmit={handleSubmit}>
+            <p>Nome de usuário</p>
             <Input name="userid" placeholder="Seu usuário" />
+            <p>Sua senha</p>
             <Input name="user_pass" type="password" placeholder="Sua senha" />
 
             <button type="submit">

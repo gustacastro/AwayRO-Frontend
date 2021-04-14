@@ -1,85 +1,109 @@
 import styled from 'styled-components';
-import { darken } from 'polished';
 
 export const Container = styled.div`
-  background: #fff;
-  padding-left: 30px;
-  -webkit-box-shadow: 0px -1px 11px 0px rgba(0, 0, 0, 0.7);
-  -moz-box-shadow: 0px -1px 11px 0px rgba(0, 0, 0, 0.7);
-  box-shadow: 0px -1px 11px 0px rgba(0, 0, 0, 0.7);
-  z-index: 1;
+  position: sticky;
+  top: 0;
+  width: 100%;
+
+  .content {
+    transition: background-color 0.5s ease;
+  }
+
+  .content.ative {
+    background: #333334;
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
+  }
 `;
 
 export const Content = styled.div`
-  height: 80px;
-  max-width: 1100px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px;
 
-  img {
-    width: 50%;
-  }
+  // ================= start left logo box =================
 
-  aside {
-    display: flex;
-    align-items: center;
-  }
-`;
-
-export const MenuBar = styled.li`
-  display: flex;
-
-  #menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  #menu ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  #menu ul li {
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 10px;
-    color: #1bba0f;
-    transition: background 0.2s;
-
-    &:hover {
-      background: ${darken(0.01, '#66ff00')};
-      color: #fff;
-      box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.1),
-        inset -6px -6px 10px 0 rgba(255, 255, 255, 0.3);
-    }
-  }
-
-  #menuAcess {
-    width: 140px;
-    height: 80px;
-    background: linear-gradient(75deg, #1fce12, #66ff00);
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &:hover {
-      background: ${darken(0.01, '#00A8FF')};
-      color: #fff;
-      box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),
-        inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
-    }
-  }
-
-  #menuAcess strong {
+  .logotext {
     font-size: 20px;
-    color: #fff;
+    display: flex;
+    align-items: baseline;
+
+    .logotextorange {
+      font-size: 26px;
+      color: #c3073f;
+    }
   }
+
+  // ================= end left logo box =================
+
+  // ================= start menunav =================
+
+  .menunav {
+    li {
+      display: inline;
+      margin: 0 8px;
+      color: #fff;
+      transition: 0.3s;
+
+      &:hover {
+        color: #c3073f;
+        cursor: pointer;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #c3073f;
+      }
+    }
+  }
+
+  // ================= end menunav =================
+
+  // ================= start registerbutton =================
+
+  .registerbutton {
+    display: flex;
+    flex-direction: row;
+    text-align: right;
+    align-items: center;
+
+    .registerlink {
+      margin-right: 15px;
+      font-weight: bold;
+      padding: 5px 0px;
+      border-bottom: 1px solid transparent;
+
+      &:hover {
+        color: #c3073f;
+        transition: 0.3s;
+        border-bottom: 1px solid #c3073f;
+      }
+    }
+
+    .linkright {
+      &:hover {
+        .textnormal {
+          color: #2579f6;
+        }
+
+        .textorange {
+          color: #2579f6;
+        }
+      }
+
+      .textnormal {
+        font-size: 13px;
+        color: #fff;
+      }
+
+      .textorange {
+        font-size: 20px;
+        color: #c3073f;
+      }
+    }
+  }
+
+  // ================= end registerbutton =================
 `;

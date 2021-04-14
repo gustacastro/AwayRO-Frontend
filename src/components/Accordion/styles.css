@@ -5,11 +5,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px 0;
 }
 
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
-  background-color: #5ce700;
   color: #fff;
   cursor: pointer;
   border-radius: 50px;
@@ -20,16 +20,16 @@
   outline: none;
   transition: background-color 0.6s ease;
   width: 450px;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
-      -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
-      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  background: transparent;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2),
+  0px -5px 5px 0px rgba(255, 255, 255, 0.05);
 
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .accordion:hover,
 .active {
-  background-color: #66FF00;
+  background: #222121;
 }
 
 /* Style the accordion content title */

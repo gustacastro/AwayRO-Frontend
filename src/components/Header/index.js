@@ -1,85 +1,72 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import { Link } from 'react-router-dom';
-
-import logo from '../../assets/minimal.png';
-
-import { Container, Content, MenuBar } from './styles';
+import { Container, Content } from './styles';
 
 export default function Header() {
+  const [navBar, setNavbar] = useState(false);
+
+  const changeBackground = () => {
+    if (window.scrollY >= 10) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+
+  window.addEventListener('scroll', changeBackground);
+
   return (
     <Container>
-      <Content>
-        <nav>
-          <Link to="/">
-            <img src={logo} alt="AwayRO" />
-          </Link>
-        </nav>
-
-        <aside>
-          <MenuBar>
-            <nav id="menu">
-              <div>
-                <ul>
-                  <Link to="/">
-                    <li>
-                      <strong>Principal</strong>
-                    </li>
-                  </Link>
-                  <Link to="/">
-                    <li>
-                      <strong>Informações</strong>
-                    </li>
-                  </Link>
-                  <Link to="/">
-                    <li>
-                      <strong>Downloads</strong>
-                    </li>
-                  </Link>
-                  <Link to="/">
-                    <li>
-                      <strong>Doação</strong>
-                    </li>
-                  </Link>
-                  <Link to="/">
-                    <li>
-                      <strong>Suporte</strong>
-                    </li>
-                  </Link>
-                  <Link to="/">
-                    <li>
-                      <strong>Fórum</strong>
-                    </li>
-                  </Link>
-                  <Link to="/">
-                    <li>
-                      <strong>Ranking</strong>
-                    </li>
-                  </Link>
-                  <Link to="/">
-                    <li>
-                      <strong>Database</strong>
-                    </li>
-                  </Link>
-                  <Link to="/signup">
-                    <li>
-                      <strong>Registro</strong>
-                    </li>
-                  </Link>
-                </ul>
-              </div>
-
-              <Link to="/signin">
-                <div id="menuAcess">
-                  <strong>
-                    Acessar <br />
-                    Conta
-                  </strong>
-                </div>
+      <nav className={navBar ? 'content ative' : 'content'}>
+        <Content>
+          <div className="leftLogo">
+            <Link to="/" className="linkleft">
+              <h1 className="logotext">
+                ragna<h1 className="logotextorange">Reborn</h1>
+              </h1>
+            </Link>
+          </div>
+          <div className="menunav">
+            <ul className="menunavul">
+              <Link to="/">
+                <li>Principal</li>
               </Link>
-            </nav>
-          </MenuBar>
-        </aside>
-      </Content>
+              <Link to="/">
+                <li>Informações</li>
+              </Link>
+              <Link to="/">
+                <li>Downloads</li>
+              </Link>
+              <Link to="/">
+                <li>Doação</li>
+              </Link>
+              <Link to="/">
+                <li>Suporte</li>
+              </Link>
+              <Link to="/">
+                <li>Fórum</li>
+              </Link>
+              <Link to="/">
+                <li>Ranking</li>
+              </Link>
+              <Link to="/">
+                <li>Database</li>
+              </Link>
+            </ul>
+          </div>
+          <div className="registerbutton">
+            <Link to="/" className="registerlink">
+              <h1 className="textnormalregister">Registrar</h1>
+            </Link>
+            <Link to="/" className="linkright">
+              <h1 className="textnormal">
+                Acessar<h1 className="textorange">Conta</h1>
+              </h1>
+            </Link>
+          </div>
+        </Content>
+      </nav>
     </Container>
   );
 }

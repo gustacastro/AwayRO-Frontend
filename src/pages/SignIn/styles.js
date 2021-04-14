@@ -7,85 +7,6 @@ export const Wrapper = styled.div`
   z-index: 2;
 `;
 
-export const Status = styled.div`
-  margin: 0 auto;
-  width: 320px;
-  height: 50px;
-  background-color: white;
-  border-radius: 0 0 15px 15px;
-  text-align: center;
-  -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
-
-  strong {
-    font-size: 20px;
-  }
-
-  #online {
-    color: #1fce12;
-  }
-
-  #offline {
-    color: red;
-  }
-
-  #pPlayer {
-    color: #898989;
-  }
-
-  h1 {
-    font-size: 32px;
-  }
-
-  #divPlayerNum {
-    width: 100px;
-  }
-
-  #divStatus {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 10px;
-    padding-bottom: 9px;
-  }
-
-  #divSides {
-    width: 100px;
-  }
-`;
-
-export const StatusNames = styled.div`
-  margin: 0 auto;
-  width: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  div {
-    width: 70px;
-    height: 15px;
-    background-color: #5ce700;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
-  }
-
-  strong {
-    font-size: 11px;
-    color: white;
-  }
-
-  #player {
-    margin: 0 30px;
-  }
-`;
-
 export const Container = styled.div`
   width: 100%;
   margin: 0 auto;
@@ -99,10 +20,10 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     background-color: red;
-    background: -webkit-linear-gradient(-176deg, #5ce700 24.8%, #fff 25%);
-    background: -o-linear-gradient(-176deg, #5ce700 24.8%, #fff 25%);
-    background: -moz-linear-gradient(-176deg, #5ce700 24.8%, #fff 25%);
-    background: linear-gradient(-178.5deg, #5ce700 69.4%, #fff 70%);
+    background: -webkit-linear-gradient(-176deg, #4d4e71 24.8%, #315e5e 25%);
+    background: -o-linear-gradient(-176deg, #4d4e71 24.8%, #315e5e 25%);
+    background: -moz-linear-gradient(-176deg, #4d4e71 24.8%, #315e5e 25%);
+    background: linear-gradient(-178.5deg, #4d4e71 69.4%, #315e5e 70%);
     z-index: 2;
 
     img {
@@ -117,9 +38,9 @@ export const BackGround = styled.div`
   min-height: 400px;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: #315e5e;
   z-index: 1;
-  color: #898989;
+  color: #fff;
   text-align: center;
   align-items: center;
 
@@ -130,19 +51,20 @@ export const BackGround = styled.div`
     flex-direction: column;
 
     input {
-      height: 30px;
-      margin: 0 0 10px;
-      padding: 10px;
-      color: green;
+      -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+      box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
       border: 0;
-      text-align: center;
       border-radius: 50px;
-      -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
-      -moz-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
-      box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+      height: 40px;
+      margin: 0 0 10px;
+      text-align: center;
+      color: #fea52d;
+      font-weight: bold;
+      background: #4d4e6f;
 
       &::placeholder {
-        color: rgba(0, 0, 0, 0.2);
+        color: rgba(255, 255, 255, 0.4);
       }
     }
 
@@ -158,20 +80,26 @@ export const BackGround = styled.div`
     button {
       margin: 5px 0 0;
       height: 40px;
-      background: #fff;
-      -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
-      -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
-      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+      background: #fda540;
+      -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
       font-weight: bold;
-      color: #1bba0f;
+      color: #fff;
       border: 0;
       border-radius: 50px;
       transition: 0.3s;
 
       &:hover {
-        background: ${darken(0.03, '#66ff00')};
+        background: ${darken(0.01, '#53a3fb')};
         color: white;
       }
+    }
+
+    p {
+      margin-bottom: 2px;
+      color: orange;
+      font-size: 12px;
     }
 
     a {
