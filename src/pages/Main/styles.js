@@ -81,7 +81,8 @@ export const Wrapper = styled.div`
       color: #2dcd89;
     }
 
-    .online.offline {
+    .offline {
+      font-size: 24px;
       color: #c3073f;
     }
 
