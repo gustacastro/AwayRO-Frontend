@@ -65,6 +65,35 @@ export default function Main() {
           />
         </div>
       </div>
+      <div className="divtab2">
+        <img src={titleimg} alt="titleimg" />
+        <div className="accordionright">
+          <Accordion
+            title="Lorem ipsum dolor sit amet"
+            content="
+            <h1>Lorem ipsum dolor sit amet</h1>
+            </br>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            "
+          />
+          <Accordion
+            title="Lorem ipsum dolor sit amet"
+            content="
+            <h1>Lorem ipsum dolor sit amet</h1>
+            </br>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            "
+          />
+          <Accordion
+            title="Lorem ipsum dolor sit amet"
+            content="
+            <h1>Lorem ipsum dolor sit amet</h1>
+            </br>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            "
+          />
+        </div>
+      </div>
     </Wrapper>
   );
 }

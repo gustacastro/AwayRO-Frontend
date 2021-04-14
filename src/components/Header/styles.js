@@ -10,7 +10,7 @@ export const Container = styled.div`
   }
 
   .content.ative {
-    background: #333334;
+    background: #1a1a1d;
     -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
