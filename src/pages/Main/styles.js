@@ -160,10 +160,24 @@ export const Wrapper = styled.div`
   }
 
   // ================== End Noticies and Events ================ \\
+
+  // ================== Start Woe Tab ================ \\
+
+  .woetab {
+    width: 100%;
+    margin: 0 auto;
+    height: 300px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  // ================== End Woe Tab ================ \\
 `;
 
 export const Notices = styled.div`
-  width: 320px;
+  width: 100%;
   height: 70px;
   max-height: 70px;
   border-radius: 5px;
@@ -227,7 +241,7 @@ export const Notices = styled.div`
 `;
 
 export const Events = styled.div`
-  width: 320px;
+  width: 100%;
   height: 70px;
   max-height: 70px;
   border-radius: 5px;
