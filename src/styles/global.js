@@ -10,7 +10,6 @@ export default createGlobalStyle`
     padding: 0;
     outline: 0;
     box-sizing: border-box;
-    background: #1a1a1d;
 
   }
 
@@ -20,6 +19,8 @@ export default createGlobalStyle`
 
   html, body, #root {
     height: 100%;
+    background: #1a1a1d;
+
   }
 
   body {
