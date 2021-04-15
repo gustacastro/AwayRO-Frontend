@@ -80,6 +80,9 @@ export default function Main() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
+        <Link className="linkcash" type="button" to="/">
+          Ver todos
+        </Link>
       </div>
       <div className="divtab2">
         <img src={knightpecopeco} alt="titleimg" />

@@ -2,27 +2,20 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Form, Input, Choice, useField } from '@rocketseat/unform';
-import { Link } from 'react-router-dom';
-import * as Yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
 
 import ReactDatepicker, { registerLocale } from 'react-datepicker';
-import el from 'date-fns/locale/pt-BR'; // register it with the name you want
-
+import el from 'date-fns/locale/pt-BR';
 import 'react-datepicker/dist/react-datepicker.css'; // react datepicker css
 import { getMonth, getYear } from 'date-fns';
 import range from 'lodash/range';
+import * as Yup from 'yup';
 
-import { BackGround, StatusNames, Wrapper, Status, Container } from './styles';
-
-import Accordion from '../../components/Accordion/accordion';
-
-import logoCima from '../../assets/away-full-logo.png';
-
+import { Link } from 'react-router-dom';
+import { Wrapper } from './styles';
 import { signUpRequest } from '../../store/modules/auth/action';
 
-// the locale you want
 registerLocale('pr-br', el);
 
 const schema = Yup.object().shape({
@@ -44,6 +37,13 @@ const schema = Yup.object().shape({
 
 export default function SignUp() {
   const dispatch = useDispatch();
+
+  const loading = useSelector((state) => state.auth.loading);
+
+  function handleSubmit({ userid, user_pass, email, birthdate, sex }) {
+    console.tron.log(userid, user_pass, email, birthdate, sex);
+    dispatch(signUpRequest(userid, user_pass, email, birthdate, sex));
+  }
 
   const Datepicker = ({ name, label }) => {
     const ref = useRef(null); // for ref manipulation purposes
@@ -152,89 +152,43 @@ export default function SignUp() {
       </>
     );
   };
-
-  const loading = useSelector((state) => state.auth.loading);
-
-  function handleSubmit({ userid, user_pass, email, birthdate, sex }) {
-    console.tron.log(userid, user_pass, email, birthdate, sex);
-    dispatch(signUpRequest(userid, user_pass, email, birthdate, sex));
-  }
-
   return (
     <Wrapper>
-      <Status>
-        <div id="divStatus">
-          <div id="divSides">
-            <strong id="online">Online</strong>
-          </div>
-          <div id="divPlayerNum">
-            <strong id="pPlayer">2785</strong>
-          </div>
-          <div id="divPlayerNum">
-            <strong id="offline">Offline</strong>
-          </div>
-        </div>
-        <div>
-          <StatusNames>
-            <div id="servidor">
-              <strong>Servidor</strong>
-            </div>
-            <div id="player">
-              <strong>Jogadores</strong>
-            </div>
-            <div id="woe">
-              <strong>WoE</strong>
-            </div>
-          </StatusNames>
-        </div>
-      </Status>
-
-      <Container>
-        <div id="divimg">
-          <img src={logoCima} alt="logocima" />
-        </div>
-        <BackGround>
-          <h1>Área de registro</h1>
-          <Form schema={schema} onSubmit={handleSubmit}>
-            <Input name="userid" placeholder="Seu usuário" />
-            <Input name="user_pass" type="password" placeholder="Sua senha" />
-            <Input
-              name="confirm_user_pass"
-              type="password"
-              placeholder="Confirmar senha"
-            />
-            <Input name="email" type="email" placeholder="Seu email" />
-            <div id="divRadio">
-              <Choice
-                name="sex"
-                options={[
-                  { value: 'M', label: 'Masculino' },
-                  { value: 'F', label: 'Feminino' },
-                ]}
-              />
-            </div>
-            <div id="date">
-              <Datepicker name="birthdate" label="Data de nascimento" />
-            </div>
-            <button type="submit">
-              {loading ? 'Carregando...' : 'Cadastrar'}
-            </button>
-            <Link to="signin">Já tenho conta</Link>
-          </Form>
-          <Accordion
-            title="Válidações para criar conta"
-            content="
-            <h1>Sua conta precisa seguir as seguintes normas:</h1>
-            </br>
-            <strong>Usuário: </strong><p>Ter no mínimo 4 caracteres.</p>
-            <strong>Senha: </strong><p>Ter no mínimo 6 caracteres.</p>
-            <strong>E-mail: </strong><p>Conter @ e .com para ser um e-mail válido.</p>
-            <strong>Sexo: </strong><p>Selecionar Masculino ou Feminino.</p>
-            <strong>Data de nascimento: </strong><p>Colocar por que pode haver algumas surpresas. ;)</p>
-            "
+      <div className="title">
+        <h1>Área de registro</h1>
+      </div>
+      <div className="loginpainel">
+        <Form autoComplete="off" schema={schema} onSubmit={handleSubmit}>
+          <p>Nome de usuário</p>
+          <Input autoComplete="off" name="userid" placeholder="Usuário" />
+          <p>Sua senha</p>
+          <Input name="user_pass" type="password" placeholder="Sua senha" />
+          <p>Confirmar sua senha</p>
+          <Input
+            name="confirm_user_pass"
+            type="password"
+            placeholder="Confirmar senha"
           />
-        </BackGround>
-      </Container>
+          <p>Seu e-mail</p>
+          <Input name="email" type="email" placeholder="Seu e-mail" />
+          <p>Sexo</p>
+          <div className="Radio">
+            <Choice
+              name="sex"
+              options={[
+                { value: 'M', label: 'Masculino' },
+                { value: 'F', label: 'Feminino' },
+              ]}
+            />
+          </div>
+
+          <Datepicker name="birthdate" label="Data de nascimento" />
+          <button className="button" type="submit">
+            {loading ? 'Carregando...' : 'Cadastrar'}
+          </button>
+          <Link to="/signin">Já tenho conta</Link>
+        </Form>
+      </div>
     </Wrapper>
   );
 }

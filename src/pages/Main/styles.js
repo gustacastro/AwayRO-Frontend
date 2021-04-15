@@ -38,16 +38,15 @@ export const Wrapper = styled.div`
         width: 25%;
         padding: 10px 0;
         color: #fff;
-        background-color: #5e72e4;
-        box-shadow: #5e72e4 0px 3px 5px, #5e72e4 0px 1px 2px;
-        border-color: #5e72e4;
+        background-color: #c3073f;
+        -webkit-box-shadow: 0px 0px 10px 0px rgba(195, 7, 63, 0.5);
+        -moz-box-shadow: 0px 0px 10px 0px rgba(195, 7, 63, 0.5);
+        box-shadow: 0px 0px 10px 0px rgba(195, 7, 63, 0.5);
+        border-color: #c3073f;
         transition: 0.2s;
 
         &:hover {
-          background: ${darken(0.04, '#5e72e4')};
-          box-shadow: ${darken(0.04, '#5e72e4')} 0px 3px 5px,
-            #5e72e4 0px 1px 2px;
-          border-color: ${darken(0.04, '#5e72e4')};
+          background: ${darken(0.04, '#c3073f')};
         }
       }
     }
@@ -105,6 +104,25 @@ export const Wrapper = styled.div`
     padding: 50px;
     border-radius: 10px;
     margin: 50px 0;
+
+    .linkcash {
+      text-align: center;
+      border-radius: 5px;
+      align-self: center;
+      width: 25%;
+      padding: 10px 0;
+      color: #fff;
+      background-color: #c3073f;
+      -webkit-box-shadow: 0px 0px 10px 0px rgba(195, 7, 63, 0.5);
+      -moz-box-shadow: 0px 0px 10px 0px rgba(195, 7, 63, 0.5);
+      box-shadow: 0px 0px 10px 0px rgba(195, 7, 63, 0.5);
+      border-color: #c3073f;
+      transition: 0.2s;
+
+      &:hover {
+        background: ${darken(0.04, '#c3073f')};
+      }
+    }
 
     .divleft {
       background: #fff;

@@ -70,6 +70,12 @@ export const Wrapper = styled.div`
       border: 1px solid #c3073f;
     }
 
+    input:hover {
+      transition: 0.2s;
+      border-right: 1px solid #c3073f;
+      border-left: 1px solid #c3073f;
+    }
+
     button {
       border-radius: 10px;
       padding: 10px 40px;
@@ -85,94 +91,21 @@ export const Wrapper = styled.div`
         background: ${darken(0.05, '#c3073f')};
       }
     }
-  }
-`;
-
-/*
-
-export const Container = styled.div`
-  width: 100%;
-  margin: 0 auto;
-  margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-export const BackGround = styled.div`
-  padding-top: 20px;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  background-color: #315e5e;
-  color: #fff;
-  text-align: center;
-  align-items: center;
-
-  form {
-    max-width: 200px;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-
-    input {
-      -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
-      -moz-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
-      box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
-      border: 0;
-      border-radius: 50px;
-      height: 40px;
-      margin: 0 0 10px;
-      text-align: center;
-      color: #fea52d;
-      font-weight: bold;
-      background: #4d4e6f;
-
-      &::placeholder {
-        color: rgba(255, 255, 255, 0.4);
-      }
-    }
 
     span {
-      color: #fff;
+      white-space: nowrap;
+      margin-top: 5px;
       font-size: 12px;
-      margin: 0 0 10px;
-      padding: 5px 10px;
-      background-color: #f64c75;
-      border-radius: 50px;
-    }
-
-    button {
-      margin: 5px 0 0;
-      height: 40px;
-      background: #fda540;
-      -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
-      -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
-      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
-      font-weight: bold;
-      color: #fff;
-      border: 0;
-      border-radius: 50px;
-      transition: 0.3s;
-
-      &:hover {
-        background: ${darken(0.01, '#53a3fb')};
-        color: white;
-      }
-    }
-
-    p {
-      margin-bottom: 2px;
-      color: orange;
-      font-size: 12px;
+      color: #c3073f;
     }
 
     a {
       margin-top: 20px;
-      color: orange;
-      font-weight: bold;
+      color: #f4571d;
+
+      &:hover {
+        color: ${darken(0.1, '#f4571d')};
+      }
     }
   }
 `;
-
-*/
