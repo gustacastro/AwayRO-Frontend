@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
+import woe01 from '../../assets/woe01.png';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -94,6 +95,49 @@ export const Wrapper = styled.div`
 
   // ================== End Box Status Top =============== \\
 
+  // ================== Start Cash ================ \\
+
+  .cashtab {
+    margin: 0 auto;
+    width: 100%;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2),
+      0px -5px 5px 0px rgba(255, 255, 255, 0.05);
+    display: flex;
+    padding: 50px;
+    border-radius: 10px;
+    margin: 50px 0;
+
+    .divleft {
+      background: #fff;
+      border-radius: 5px;
+      padding: 10px;
+      -webkit-box-shadow: 0px 0px 85px 0px rgba(255, 255, 255, 1);
+      -moz-box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 1);
+      box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 1);
+
+      img {
+        width: 120px;
+      }
+    }
+
+    .divright {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 50px;
+      text-align: center;
+
+      h1 {
+        color: #c3073f;
+        padding-bottom: 20px;
+        font-size: 30px;
+      }
+    }
+  }
+
+  // ================== End Cash ================ \\
+
   // ================== Start Tab 2 ================ \\
 
   .divtab2 {
@@ -165,13 +209,41 @@ export const Wrapper = styled.div`
   // ================== Start Woe Tab ================ \\
 
   .woetab {
-    width: 100%;
-    margin: 0 auto;
-    height: 300px;
+    width: 80%;
+    margin: 20px auto;
     border-radius: 10px;
     -webkit-box-shadow: inset 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: inset 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
     box-shadow: inset 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    background-image: url(${woe01});
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-size: 30%;
+    padding: 50px;
+    flex-direction: column;
+
+    h1 {
+      font-size: 18px;
+    }
+
+    .daystab {
+      width: 50%;
+      display: flex;
+      margin-top: 20px;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+
+      .linewidth {
+        width: 100px;
+      }
+    }
+
+    .img {
+      width: 15px;
+      margin-right: 10px;
+    }
   }
 
   // ================== End Woe Tab ================ \\

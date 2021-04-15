@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 // Imports
 import Accordion from '../../components/Accordion/accordion';
@@ -11,8 +10,10 @@ import api from '../../services/api';
 import { Wrapper, Notices, Events } from './styles';
 
 // imgs
-import titleimg from '../../assets/titleimg.png';
+import titleimg from '../../assets/titleimg2.png';
 import knightpecopeco from '../../assets/knight pecopeco.png';
+import castle from '../../assets/castle.svg';
+import itemcash from '../../assets/itemcash.png';
 
 export default function Main() {
   const [playerOnline, setPlayerOnline] = useState(false);
@@ -24,7 +25,6 @@ export default function Main() {
       setPlayerOnline(data?.users?.count);
     } catch (error) {
       console.log(JSON.stringify(error));
-      toast.error('Erro de conexão com o servidor!');
     }
   };
 
@@ -41,6 +41,7 @@ export default function Main() {
     PlayersOnlineStatus();
     ServerOnlineStatus();
   }, []);
+
   return (
     <Wrapper>
       <div className="divtitle">
@@ -66,6 +67,18 @@ export default function Main() {
         <div>
           <span>Jogadores Online: </span>
           <h1 className="online">{playerOnline || '0'}</h1>
+        </div>
+      </div>
+      <div className="cashtab">
+        <div className="divleft">
+          <img src={itemcash} alt="" />
+        </div>
+        <div className="divright">
+          <h1>Lorem ipsum dolor sit amet</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
         </div>
       </div>
       <div className="divtab2">
@@ -249,7 +262,49 @@ export default function Main() {
           </div>
         </div>
       </div>
-      <div className="woetab">h1</div>
+      <div className="woetab">
+        <h1>Dias da Guerra do Emperium:</h1>
+        <div>
+          <ul>
+            <div className="daystab">
+              <img className="img" src={castle} alt="" />
+              <div className="linewidth">
+                <p>Prontera</p>
+              </div>
+              <div className="linewidth">
+                <p>Segunda-Feira</p>
+              </div>
+              <div className="lineday">
+                <p>22:00</p>
+              </div>
+              <div>
+                <p>|</p>
+              </div>
+              <div className="lineday">
+                <p>23:59</p>
+              </div>
+            </div>
+            <div className="daystab">
+              <img className="img" src={castle} alt="" />
+              <div className="linewidth">
+                <p>Aldebaran</p>
+              </div>
+              <div className="linewidth">
+                <p>Quarta-Feira</p>
+              </div>
+              <div className="lineday">
+                <p>12:00</p>
+              </div>
+              <div>
+                <p>|</p>
+              </div>
+              <div className="lineday">
+                <p>14:00</p>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
     </Wrapper>
   );
 }
