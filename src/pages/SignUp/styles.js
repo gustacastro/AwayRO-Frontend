@@ -184,10 +184,10 @@ export const Wrapper = styled.div`
 
     a {
       margin-top: 20px;
-      color: #f4571d;
+      signin      transition: 0.2s;
 
       &:hover {
-        color: ${darken(0.1, '#f4571d')};
+        color: #8c5bdf;
       }
     }
 

@@ -32,7 +32,7 @@ export default function Header() {
               <Link to="/">
                 <li>Principal</li>
               </Link>
-              <Link to="/">
+              <Link to="/information">
                 <li>Informações</li>
               </Link>
               <Link to="/">
@@ -56,10 +56,10 @@ export default function Header() {
             </ul>
           </div>
           <div className="registerbutton">
-            <Link to="/signup" className="registerlink">
+            <Link to="/signin" className="registerlink">
               <h1 className="textnormalregister">Acessar</h1>
             </Link>
-            <Link to="/signin" className="linkright">
+            <Link to="/signup" className="linkright">
               <h1 className="textnormal">Registro</h1>
             </Link>
           </div>
