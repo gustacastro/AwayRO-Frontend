@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { darken } from 'polished';
 
 import password from '../../assets/password.svg';
 import user from '../../assets/user.svg';
@@ -15,17 +14,25 @@ export const Wrapper = styled.div`
   .title {
     margin: 0 auto;
     width: 40%;
-    transform: rotate(-5deg);
     display: flex;
     justify-content: center;
-    border-radius: 20px;
-    padding: 20px 70px;
-    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2),
-      0px -5px 5px 0px rgba(255, 255, 255, 0.05);
+    align-items: center;
+    flex-direction: column;
 
     h1 {
-      color: #c3073f;
-      font-size: 24px;
+      font-size: 50px;
+      color: #1e1d30;
+      text-shadow: 0 0 3px rgb(141, 90, 228, 0.8); /* horizontal-offset vertical-offset 'blur' colour */
+      -moz-text-shadow: 0 0 3px rgb(141, 90, 228, 0.8);
+      -webkit-text-shadow: 0 0 3px rgb(141, 90, 228, 08);
+    }
+
+    h2 {
+      margin-top: -25px;
+      font-size: 40px;
+      text-shadow: 0 0 2px #000; /* horizontal-offset vertical-offset 'blur' colour */
+      -moz-text-shadow: 0 0 2px #000;
+      -webkit-text-shadow: 0 0 2px #000;
     }
   }
 
@@ -46,9 +53,9 @@ export const Wrapper = styled.div`
       background: transparent;
       border: 0px;
       border: 1px solid transparent;
-      border-bottom: 1px solid #c3073f;
+      border-bottom: 1px solid #8c5bdf;
       padding: 10px;
-      color: #c3073f;
+      color: #8c5bdf;
       font-size: 16px;
       transition: 0.5s;
     }
@@ -67,28 +74,25 @@ export const Wrapper = styled.div`
 
     input:focus {
       transition: 0.2s;
-      border: 1px solid #c3073f;
+      border: 1px solid #8c5bdf;
     }
 
     input:hover {
       transition: 0.2s;
-      border-right: 1px solid #c3073f;
-      border-left: 1px solid #c3073f;
+      border-right: 1px solid #8c5bdf;
+      border-left: 1px solid #8c5bdf;
     }
 
     button {
       border-radius: 10px;
       padding: 10px 40px;
       margin-top: 50px;
-      background: #c3073f;
-      border-color: transparent;
-
-      -webkit-box-shadow: 0px 0px 10px 0px rgba(195, 7, 63, 1);
-      -moz-box-shadow: 0px 0px 10px 0px rgba(195, 7, 63, 1);
-      box-shadow: 0px 0px 10px 0px rgba(195, 7, 63, 1);
+      background: transparent;
+      border: 1px solid #8c5bdf;
+      transition: 0.2s;
 
       &:hover {
-        background: ${darken(0.05, '#c3073f')};
+        background: #8c5bdf;
       }
     }
 
@@ -101,10 +105,10 @@ export const Wrapper = styled.div`
 
     a {
       margin-top: 20px;
-      color: #f4571d;
+      color: #fff;
 
       &:hover {
-        color: ${darken(0.1, '#f4571d')};
+        color: #8c5bdf;
       }
     }
   }

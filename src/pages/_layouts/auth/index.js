@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Header from '../../../components/Header';
 import ScrollToTop from '../../../components/ScrollToTop';
+import Footer from '../../../components/Footer';
 
 import { Wrapper } from './styles';
 
@@ -12,6 +13,7 @@ export default function AuthLayout({ children }) {
       <ScrollToTop />
       <Header />
       {children}
+      <Footer />
     </Wrapper>
   );
 }

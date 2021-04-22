@@ -29,7 +29,8 @@ export default function SignIn() {
   return (
     <Wrapper>
       <div className="title">
-        <h1>Área de acesso</h1>
+        <h1>Área</h1>
+        <h2>acesso</h2>
       </div>
       <div className="loginpainel">
         <Form schema={schema} onSubmit={handleSubmit}>

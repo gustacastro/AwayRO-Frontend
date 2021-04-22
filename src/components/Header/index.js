@@ -56,10 +56,10 @@ export default function Header() {
             </ul>
           </div>
           <div className="registerbutton">
-            <Link to="/" className="registerlink">
+            <Link to="/signup" className="registerlink">
               <h1 className="textnormalregister">Acessar</h1>
             </Link>
-            <Link to="/" className="linkright">
+            <Link to="/signin" className="linkright">
               <h1 className="textnormal">Registro</h1>
             </Link>
           </div>

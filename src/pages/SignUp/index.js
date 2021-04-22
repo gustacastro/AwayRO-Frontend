@@ -155,7 +155,8 @@ export default function SignUp() {
   return (
     <Wrapper>
       <div className="title">
-        <h1>Área de registro</h1>
+        <h1>Área</h1>
+        <h2>registro</h2>
       </div>
       <div className="loginpainel">
         <Form autoComplete="off" schema={schema} onSubmit={handleSubmit}>
