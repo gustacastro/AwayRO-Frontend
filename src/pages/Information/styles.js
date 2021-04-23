@@ -38,7 +38,7 @@ export const Container = styled.div`
     margin-top: 50px;
 
     h3 {
-      width: 68%;
+      width: 50%;
       padding: 10px;
       border-bottom: 1px solid #8d5ae4;
     }
@@ -58,11 +58,58 @@ export const Container = styled.div`
         width: 250px;
         padding: 0 10px;
       }
+
+      .arroba {
+        padding: 0 2px;
+        color: #f6641f;
+      }
+
+      .extras {
+        background: #f6641f;
+        display: flex;
+        justify-content: center;
+      }
+
+      .extras2 {
+        width: 400px;
+      }
+
+      .title {
+        padding: 10px;
+        font-size: 16px;
+      }
+
+      .vip {
+        background: #c3073f;
+      }
+
+      .arrobavip {
+        color: #C3073F;
+      }
+      }
     }
   }
+
+  .extras {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    h3 {
+      width: 550px;
+      border-bottom: 1px solid #f6641f;
+    }
+  }
+
   .infobackground {
     width: 350px;
     margin-top: -350px;
     margin-left: 800px;
+  }
+
+  .extrasbackground {
+    width: 400px;
+    margin-top: -600px;
   }
 `;
